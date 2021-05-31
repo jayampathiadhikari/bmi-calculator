@@ -5,7 +5,8 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import { useSpeechSynthesis } from 'react-speech-kit';
 import { Grid } from '@material-ui/core'
 import DatePicker from 'react-date-picker';
-import Select from 'react-select';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 const options = [
 	{ value: 'metric', label: 'Metric (kg/cm)' },
@@ -84,7 +85,7 @@ const BmiForm = ({ change }) => {
 			SpeechRecognition.abortListening();
 			setOldTranscript("")
 			speechRecognitionOn = false;
-			setSpeechValue("Speech Recognition stopped");
+			setSpeechValue("Speech assistant stopped");
 		}
 		if (transcript.includes("reset")) {
 			setOldTranscript("")
@@ -149,7 +150,7 @@ const BmiForm = ({ change }) => {
 			}else{
 				status = "extremely obese"
 			}
-			setSpeechValue("Your weight is "+heightTemp+". Your BMI is "+bmi+". According to your BMI, you are "+status);
+			setSpeechValue("Your height is "+heightTemp+". Your BMI is "+bmi+". According to your BMI, you are "+status);
 			resetTranscript();
 		}
 		setOldTranscript(transcript);
@@ -275,11 +276,7 @@ const BmiForm = ({ change }) => {
 
 					</Grid>
 					<Grid item xs={4} sm={4}>
-						<Select
-							value={unit}
-							onChange={setUnit}
-							options={options}
-						/>
+						<Dropdown options={options} onChange={setUnit} value={unit} placeholder="Select an option" />
 					</Grid>
 				</Grid>
 				<Grid container  >
@@ -322,7 +319,7 @@ const BmiForm = ({ change }) => {
 					</div>
 				</Grid>
 				<Grid item xs={12} sm={12}>
-				<div style={{marginTop: '16px'}}>
+				<div style={{marginTop: '30px'}}>
 					<button
 						id="bmi-btn"
 						className="calculate-btn"

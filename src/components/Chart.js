@@ -62,8 +62,8 @@ export default function Chart({ labelData = [], bmiData = [] }) {
         createRangeLabel(valueAxis, 18.5, 'Underweight', 'top')
         createRangeLabel(valueAxis, 25, 'Healthy', 'top')
         createRangeLabel(valueAxis, 30, 'Overweight', 'top')
-        createRangeLabel(valueAxis, 30, 'Obase', 'bottom')
-        createRangeLabel(valueAxis, 35, 'Extremely Obase', 'bottom')
+        createRangeLabel(valueAxis, 30, 'Obese', 'bottom')
+        createRangeLabel(valueAxis, 35, 'Extremely Obese', 'bottom')
         // createRange(valueAxis, 80, 100, am4core.color("#"));
 
         return function cleanup() {
